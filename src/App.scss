@@ -1,0 +1,740 @@
+$black: #000000;
+$gray: #C5CAE0;
+$paleblue: #A3CDED;
+$lightblue: #11DBFD;
+$pink: #F72C95;
+$lightpurple: #BA25F0;
+$darkpurple: #2F0A6E;
+$textsize: 6vw;
+
+.centerChild {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes animatedBackground {
+	from { background-position: 0 0; }
+	to { background-position: 100% 0; }
+}
+
+@keyframes loading {
+  from {
+    width: 1%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+
+
+@keyframes wiggle {
+  0% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+  100% {
+    transform: rotate(-3deg)
+  }
+}
+
+
+
+
+@font-face {
+  font-family: 'DeadStock';
+  src: local('DeadStock'), url('./assets/fonts/deadStock.ttf') format('truetype');
+}
+
+//* FONT STYLES TO BE USED
+// font-family: futura-pt,sans-serif;
+// font-weight: 700;
+// font-style: normal;
+
+// font-family: futura-pt,sans-serif;
+// font-weight: 700;
+// font-style: italic;
+
+// font-family: futura-pt,sans-serif;
+// font-weight: 400;
+// font-style: normal;
+
+// font-family: futura-pt,sans-serif;
+// font-weight: 400;
+// font-style: italic;
+
+// font-family: futura-pt-bold,sans-serif;
+// font-weight: 700;
+// font-style: normal;
+
+// font-family: futura-pt-bold,sans-serif;
+// font-weight: 700;
+// font-style: italic;
+
+// font-family: futura-pt-condensed,sans-serif;
+// font-weight: 400;
+// font-style: normal;
+
+// font-family: futura-pt-condensed,sans-serif;
+// font-weight: 400;
+// font-style: italic;
+
+// font-family: futura-pt-condensed,sans-serif;
+// font-weight: 700;
+// font-style: normal;
+
+// font-family: futura-pt-condensed,sans-serif;
+// font-weight: 700;
+// font-style: italic;
+
+
+h1 {
+  font-family: 'DeadStock', sans-serif;
+  font-weight: 400;
+}
+
+h2, h3 {
+  font-family: futura-pt,sans-serif;
+font-weight: 700;
+}
+
+p {
+font-family: futura-pt,sans-serif;
+font-weight: 400;
+}
+
+.caption {
+  font-family: futura-pt,sans-serif;
+  font-weight: 200;
+  font-style: italic;
+  color: #999999;
+}
+
+
+.App {
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  overflow: hidden;
+  background-image: url("https://images.unsplash.com/photo-1520034475321-cbe63696469a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
+  background-position: 0px 0px;
+  background-repeat: repeat;
+  animation: animatedBackground 18s linear infinite;
+}
+
+.HomeWrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  @media only screen and (max-width: 725px) {
+    display: none;
+  }
+  .row {
+    border: 6px solid black;
+    width: 99.5%;
+  }
+  .Toprow {
+    flex: 3;
+    display: flex;
+    @media only screen and (max-width: 725px) {
+      display: none;
+    }
+    .wide {
+      height: 100%;
+      flex: 3;
+    }
+    .thin {
+      flex: 2;
+    }
+
+  }
+  .Midrow {
+    position: relative;
+    z-index: 2;
+    flex: 4;
+    display: flex;
+    @media only screen and (max-width: 725px) {
+      flex-direction: column;
+      flex: 2;
+    }
+    .wide {
+      background: $pink;
+      height: 100%;
+      flex: 5;
+    }
+    .thin {
+      flex: 2;
+      background: $paleblue;
+        @media only screen and (max-width: 725px) {
+
+        background: url("https://soundontime.com/wp-content/uploads/2018/10/Vaporwave-Aesthetic.jpg");
+        background-size: cover; 
+      }
+      .isLink {
+        transform: rotate(-3deg);
+        text-shadow: 1px 1px white;
+
+      }
+    }
+    .title {
+      background: black;
+      color: white;
+      padding: 2px;
+      h1 {
+        transform: rotate(-3deg);
+        font-size: 4.5em;
+        text-shadow: 3px 2px $pink;
+        
+      }
+    }
+
+  }
+  .Bottomrow {
+    flex: 3;
+    display: flex;
+    @media only screen and (max-width: 725px) {
+      flex-direction: column;
+    }
+
+    .wide {
+      height: 100%;
+      flex: 3;
+    }
+    .thin {
+      flex: 2;
+    }
+    .toAbout {
+      background: $paleblue;
+      border-left: 4px solid black;
+      .isLink {
+        transform: rotate(-1deg);
+        text-shadow: 1px 1px white;
+      }
+    }
+  }
+}
+
+.isLink {
+  font-size: 2.5em;
+  border-bottom: 2px solid black;
+  transition: 0.2s;
+  text-shadow: 1px 1px $pink;
+
+}
+.containsLink:hover {
+  cursor: pointer;
+  h1 {
+    animation: wiggle 0.3s linear infinite;
+  }
+}
+
+
+.LoadingBar {
+  height: 100%;
+  width: 100%;
+  background: black;
+  opacity: 0.7;
+  display: flex;
+  flex-direction: column;
+  h1 {
+    color: white;
+  }
+  .container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 25%;
+    height: 50px;
+    border: 3px solid white;
+    padding: 5px;
+    @media only screen and (max-width: 725px) {
+      width: 75%;
+      height: 50px;
+    }
+    .bar {
+      width: 0%;
+      animation: loading 4s ease-in-out;
+      animation-delay: 1s;
+      animation-fill-mode: forwards;
+      background-color: white;
+      height: 95%;
+      opacity: 1;
+    }
+  }
+}
+
+
+
+.specialCharacter_h1 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 400;
+  font-style: italic;
+
+}
+
+@keyframes scroll {
+  from {
+    transform: translateY(-20%);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+
+
+.Music {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  @media only screen and (max-width: 725px) {
+    width: 100%;
+    height: 80%;;
+    overflow: hidden;
+    }
+    .musicContainer {
+      width: 70%;
+      height: 70%;
+      border: 10px solid white;
+      background: black;
+      @media only screen and (max-width: 725px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-width: 5px;
+        border-radius: 3%;
+        width: 95%;
+        height: 50%;
+      }
+
+  }
+  
+}
+
+
+.Contact {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  .contactContainer {
+    transform: rotate(2deg);
+    width: 50%;
+    height: 70%;
+    border: 10px solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    color: white;
+    text-shadow: 1px 1px black;
+
+    background: linear-gradient(to bottom, $lightpurple 0%, $darkpurple 100%);
+    @media only screen and (max-width: 725px) {
+      width: 95%;
+      border-width: 5px;
+      overflow: hidden;
+    }
+    h3 {
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+
+.About {
+
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  overflow-y: scroll;
+
+
+  @media only screen and (max-width: 725px) {
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+  }
+  .polaroidsWrapper {
+    transform: rotate(-2deg);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+    width: 70%;
+    @media only screen and (max-width: 725px) {
+      height: 100%;
+      width: 95%;
+      overflow-y: scroll;
+      overflow-x: hidden;
+    }
+    .PolaroidContainer {
+      height: 275px;
+      width: 250px;
+      margin: 10px;
+      @media only screen and (max-width: 725px) {
+        margin: 12px;
+      }
+      .polaroid {
+        height: 100%;
+        width: 100%;
+        transform-style: preserve-3d;
+        transition: all 0.6s ease;
+        background: white;
+        border: 2px solid black;
+        cursor: pointer;
+        .polaroidBack {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+          transform: rotateY(180deg); 
+          background-color: white;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          h1, p, h3 {
+            padding: 4px;
+          }
+        }
+        .polaroidFront {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          backface-visibility: hidden;
+          -webkit-backface-visibility: hidden;
+
+          
+          .polaroidtop {
+            padding-top: 15px;
+            height: 70%;
+            img {
+              height: 100%;
+              transition: 0.2s;
+              filter: grayscale(100%);
+            }
+          }
+          .polaroidbottom {
+            height: 30%;
+            h1 {
+              text-shadow: 0.5px 0.5px $pink;
+            }
+          }
+        }
+      }
+      .polaroidClicked {
+        transform: rotateY(180deg);
+      }
+      .polaroid:hover {
+        cursor: pointer;
+        .polaroidFront {
+          .polaroidtop{
+            img{
+              filter: grayscale(0);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.close {
+  position: absolute;
+  z-index: 100;
+  font-size: 3em;
+  top: 0;
+  right: 0;
+  margin: 10px;
+  color: white;
+  transition: 0.2s;
+  @media only screen and (max-width: 725px) {
+    font-size: 2em;
+  }
+}
+.close:hover {
+  cursor: pointer;
+  transform: rotate(360deg);
+  transition: 0.2s;
+}
+
+
+.close_mobile {
+  position: fixed;
+  font-size: 3em;
+  top: 0%;
+  right: 0%;
+  z-index: 10;
+  color: white;
+  margin: 0;
+  transition: 0.2s;
+}
+.close_mobile:hover {
+  cursor: pointer;
+  transform: rotate(360deg);
+  transition: 0.2s;
+}
+
+
+
+
+
+
+
+//? TRANSITIONS STYLING
+
+
+
+.music-appear {
+  transform: translateY(150%);
+}
+.music-enter {
+  transform: translateY(150%);
+}
+
+.music-enter-done {
+  transform: translateX(0%);
+  transition: 0.5s;
+}
+
+.music-exit {
+  transform: translateY(0%);
+}
+
+.music-exit-active {
+  transform: translateY(150%);
+
+  transition: 0.5s;
+}
+
+
+.about-appear {
+  transform: translateX(150%);
+}
+.about-enter {
+  transform: translateX(150%);
+}
+
+.about-enter-done {
+  transform: translateX(0%);
+  transition: 0.5s;
+}
+
+.about-exit {
+  transform: translateX(0%);
+}
+
+.about-exit-active {
+  transform: translateX(150%);
+
+  transition: 0.5s;
+}
+
+
+
+
+
+
+
+.contact-appear {
+  transform: translateY(-150%) rotate(0deg);
+}
+.contact-enter {
+  transform: translateY(-150%) ;
+}
+
+.contact-enter-done {
+  transform: translateX(0%) rotate(-2deg);
+  transition: 0.5s;
+}
+
+.contact-exit {
+  transform: translateY(0%) rotate(-2deg);
+}
+
+.contact-exit-active {
+  transform: translateY(-150%);
+  transition: 0.5s;
+}
+
+
+
+
+.toprow-appear {
+  transform: translateX(-100%) rotate(0deg);
+}
+.toprow-enter {
+  transform: translateX(-100%) rotate(0deg);
+}
+.toprow-enter-done {
+  transform: translateX(0%) rotate(-2deg);
+  transition: 0.5s;
+}
+
+.midrow-appear {
+  transform: translateX(100%) rotate(0deg);
+}
+.midrow-enter {
+  transform: translateX(100%) rotate(0deg);
+}
+.midrow-enter-done {
+  transform: translateX(0%) rotate(2deg);
+  transition: 0.3s;
+}
+
+
+
+
+
+.botttomrow-appear {
+  transform: translateX(-120%);
+}
+
+.botttomrow-enter {
+  transform: translateX(-120%);
+}
+
+.botttomrow-enter-done {
+  transform: translateX(0%);
+  transition: .5s;
+}
+
+
+
+
+
+
+
+
+
+
+.vwbox1, .RowOne {
+  background: url("https://www.mcgilltribune.com/wp-content/uploads/2020/02/vaporwave_DariaKiseleva-1.jpg");
+  background-size: cover;
+}
+
+.vwbox2 {
+  background: url("https://soundontime.com/wp-content/uploads/2018/10/Vaporwave-Aesthetic.jpg");
+  background-size: cover; 
+}
+.vwbox3, .RowThree {
+background: url("https://miro.medium.com/max/3840/1*KBwrbjppSZILvsiNVyoQKw.jpeg");
+background-size: cover;
+}
+
+.vwbox4 {
+  background: url("https://images.squarespace-cdn.com/content/v1/5b16f10f3e2d099b72d2a415/1573647009306-R56B8RWLZ2GFCGFTPQJG/ke17ZwdGBToddI8pDm48kBw7QIHGytCKM2D_mg1UDpd7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0peuRriT5ozTlIv33RH5i-rpDjhRV0Rslz2GUUP35UmRd0PEGBF_LGuvMyYF7DId1Q/Vaporwave+-+Web+image+1_v1.png?format=2500w");
+  background-size: cover;
+}
+
+.vwbox5, .RowFour {
+  background: url("https://miro.medium.com/max/2600/1*6-4MF8dVHt5zrpF5vir9WQ.png");
+  background-size: cover;
+}
+
+
+
+
+
+
+.HomeWrapperMobile {
+  display: none;
+    @media only screen and (max-width: 725px) {
+
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      .RowOne {
+        width: 100%;
+        height: 25%;
+        cursor: pointer;
+
+        h2 {
+          color: white;
+          border-color: white;
+          transform: rotate(3deg);
+        }
+
+      }
+      .RowTwo {
+        width: 100%;
+        height: 25%;
+        background: black;
+        opacity: 0.8;
+        color: white;
+        padding: 2px;
+        h1 {
+          transform: rotate(-3deg);
+          font-size: 3em;
+          text-shadow: 3px 2px $pink;
+          
+        }
+
+      }
+      .RowThree {
+        width: 100%;
+        height: 25%;
+        cursor: pointer;
+
+
+      }
+      .RowFour {
+        width: 100%;
+        height: 25%;
+        cursor: pointer;
+
+
+      }
+    }
+    
+  
+}
+
+
+
+.slidefromright-appear {
+  transform: translateX(120%) rotate(0deg);
+}
+
+.slidefromright-enter {
+  transform: translateX(120%) rotate(0deg);
+}
+.slidefromright-enter-done {
+  transform: translateX(0%) rotate(-2deg);
+  transition: 0.5s;
+}
+
+
+.slidefromleft-appear {
+  transform: translateX(-120%) rotate(0deg);
+}
+
+.slidefromleft-enter {
+  transform: translateX(-120%) rotate(0deg);
+}
+.slidefromleft-enter-done {
+  transform: translateX(0%) rotate(1deg);
+  transition: 0.5s;
+}
